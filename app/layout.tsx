@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import SplashWrapper from "@/components/layout/splash-wrapper";
 import ThemeProvider from "@/components/layout/provider";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
@@ -33,9 +34,11 @@ export default function RootLayout({
         className={`${outfit.variable} ${instrumentSerif.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar />
-          {children}
-          <Footer />
+          <SplashWrapper>
+            <Navbar />
+            {children}
+            <Footer />
+          </SplashWrapper>
         </ThemeProvider>
       </body>
     </html>
