@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
+import { ChevronRight, Mail } from "lucide-react";
 
 const techStack = [
   "React",
@@ -46,8 +47,7 @@ const HeroSectionFeature = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
         >
-          A Fullstack Developer building modern websites with React, Next.js,
-          Express, Node.js, Laravel, and WordPress.
+          A Full Stack Developer crafting exceptional digital experiences
         </motion.p>
 
         <motion.div
@@ -70,10 +70,14 @@ const HeroSectionFeature = () => {
           transition={{ duration: 0.9, delay: 0.3 }}
         >
           <Button asChild>
-            <a href="#project">View Projects</a>
+            <a href="#project">
+              View Projects <ChevronRight className="w-5 h-5" />
+            </a>
           </Button>
           <Button variant="outline" asChild>
-            <a href="#contact">Contact Me</a>
+            <a href="#contact">
+              Contact Me <Mail className="w-5 h-5" />
+            </a>
           </Button>
         </motion.div>
       </div>
