@@ -101,7 +101,7 @@ const ProjectSectionFeature = () => {
     >
       <div className="container space-y-8">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-primary font-instrumentserif">
-          <span className="text-purple-500/30">My</span> Projects
+          My <span className="text-purple-500/30">Projects</span>
         </h2>
 
         <p className="text-center text-muted-foreground">

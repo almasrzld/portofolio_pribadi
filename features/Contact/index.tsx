@@ -45,7 +45,7 @@ const ContactSectionFeature = () => {
     >
       <div className="container max-w-2xl space-y-8">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-primary font-instrumentserif">
-          Contact <span className="text-purple-500/30">Me</span>
+          <span className="text-purple-500/30">Contact</span> Me
         </h2>
         <p className="text-center text-muted-foreground">
           Let’s collaborate or just say hello! Fill the form below or reach me

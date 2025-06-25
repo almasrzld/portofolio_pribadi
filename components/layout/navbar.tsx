@@ -3,37 +3,34 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ThemeToggle } from "./toggle-darkmode";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("#home");
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    // ➊ Scroll-spy observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // id section = target hash (#home, #about, dst)
             setActiveSection(`#${entry.target.id}`);
           }
         });
       },
       {
         root: null,
-        rootMargin: "-50% 0px -50% 0px", // trigger saat tengah layar
+        rootMargin: "-30% 0px -70% 0px",
         threshold: 0,
       }
     );
 
-    // observe tiap section yg ada id-nya
-    const sectionIds = ["home", "about", "project", "contact"];
+    const sectionIds = ["home", "about", "skill", "project", "contact"];
     sectionIds.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
 
-    // ➋ Effect sticky navbar rounded
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
 
@@ -51,6 +48,10 @@ const Navbar = () => {
     {
       name: "About",
       path: "#about",
+    },
+    {
+      name: "Skill",
+      path: "#skill",
     },
     {
       name: "Project",
@@ -85,16 +86,31 @@ const Navbar = () => {
           <ul className="flex items-center gap-8">
             {NAVBAR_ITEMS.map((item, index) => (
               <li key={index}>
-                <Link
-                  href={item.path}
-                  className={
-                    activeSection === item.path
-                      ? "text-primary font-semibold"
-                      : "text-muted-foreground"
-                  }
-                  onClick={() => setActiveSection(item.path)}
-                >
-                  {item.name}
+                <Link href={item.path}>
+                  <motion.div
+                    className="relative cursor-pointer"
+                    initial="rest"
+                    whileHover="hover"
+                    animate="rest"
+                  >
+                    <span
+                      className={`transition-colors ${
+                        activeSection === item.path
+                          ? "text-primary font-semibold"
+                          : "text-muted-foreground"
+                      }`}
+                    >
+                      {item.name}
+                    </span>
+                    <motion.div
+                      className="absolute left-0 -bottom-1 h-[1px] w-full bg-primary"
+                      variants={{
+                        rest: { scaleX: 0, transformOrigin: "right" },
+                        hover: { scaleX: 1, transformOrigin: "left" },
+                      }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                    />
+                  </motion.div>
                 </Link>
               </li>
             ))}
