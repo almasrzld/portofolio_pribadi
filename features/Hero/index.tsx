@@ -2,18 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
 import { ChevronRight, Mail } from "lucide-react";
-
-const techStack = [
-  "React",
-  "Next.js",
-  "Express",
-  "Node.js",
-  "Laravel",
-  "WordPress",
-];
 
 const HeroSectionFeature = () => {
   return (
@@ -30,7 +20,7 @@ const HeroSectionFeature = () => {
         maxOpacity={0.08}
       />
 
-      <div className="text-center space-y-6">
+      <div className="text-center space-y-8">
         <motion.h1
           className="text-4xl md:text-6xl font-bold leading-tight text-primary font-instrumentserif"
           initial={{ opacity: 0, y: 30 }}
@@ -49,19 +39,6 @@ const HeroSectionFeature = () => {
         >
           A Full Stack Developer crafting exceptional digital experiences
         </motion.p>
-
-        <motion.div
-          className="flex flex-wrap justify-center gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          {techStack.map((tech) => (
-            <Badge key={tech} variant="secondary" className="text-sm">
-              {tech}
-            </Badge>
-          ))}
-        </motion.div>
 
         <motion.div
           className="flex justify-center gap-4"

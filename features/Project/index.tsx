@@ -97,7 +97,7 @@ const ProjectSectionFeature = () => {
   return (
     <section
       id="project"
-      className="min-h-screen py-20 bg-background text-foreground relative"
+      className="py-20 bg-background text-foreground relative"
     >
       <div className="container space-y-8">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-primary font-instrumentserif">

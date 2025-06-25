@@ -16,7 +16,7 @@ const AboutSectionFeature: React.FC = () => {
   return (
     <section
       id="about"
-      className="min-h-screen bg-background text-foreground relative py-16"
+      className="bg-background text-foreground relative py-20"
     >
       <div className="container relative z-10">
         <motion.div
@@ -26,7 +26,6 @@ const AboutSectionFeature: React.FC = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col lg:flex-row items-center gap-10"
         >
-          {/* Avatar Image */}
           <div className="w-full max-w-[300px] lg:max-w-[400px]">
             <Image
               src="/images/avatar-img.png"
@@ -37,7 +36,6 @@ const AboutSectionFeature: React.FC = () => {
             />
           </div>
 
-          {/* Text Content */}
           <div className="space-y-8">
             <h2 className="text-3xl md:text-4xl font-bold text-primary font-instrumentserif">
               About <span className="text-purple-500/30">Me</span>
@@ -87,7 +85,6 @@ const AboutSectionFeature: React.FC = () => {
               </a>
             </Button>
 
-            {/* GitHub Chart */}
             <div>
               <h3 className="text-xl font-semibold text-primary mb-2">
                 GitHub Contributions
@@ -106,8 +103,7 @@ const AboutSectionFeature: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Background Title */}
-      <div className="absolute top-[9%] left-[45%] -translate-x-1/2 opacity-10 font-instrumentserif font-bold text-8xl tracking-wide select-none z-0">
+      <div className="absolute top-[11%] left-[45%] -translate-x-1/2 opacity-10 font-instrumentserif font-bold text-8xl tracking-wide select-none z-0">
         About
       </div>
     </section>

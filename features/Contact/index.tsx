@@ -41,7 +41,7 @@ const ContactSectionFeature = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen py-20 bg-background text-foreground relative"
+      className="pb-20 bg-background text-foreground relative"
     >
       <div className="container max-w-2xl space-y-8">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-primary font-instrumentserif">
@@ -107,7 +107,7 @@ const ContactSectionFeature = () => {
         </Form>
       </div>
 
-      <div className="absolute top-[10%] left-1/2 -translate-x-1/2 opacity-10 font-instrumentserif font-bold text-8xl tracking-wide select-none z-0">
+      <div className="absolute top-[1%] left-1/2 -translate-x-1/2 opacity-10 font-instrumentserif font-bold text-8xl tracking-wide select-none z-0">
         Contact
       </div>
     </section>
