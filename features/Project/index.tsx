@@ -162,7 +162,7 @@ const ProjectSectionFeature = () => {
         </div>
       </div>
 
-      <div className="absolute top-[7%] left-1/2 -translate-x-1/2 opacity-10 font-instrumentserif font-bold text-8xl tracking-wide select-none z-0">
+      <div className="absolute top-[3.5%] md:top-[7%] left-1/2 -translate-x-1/2 opacity-10 font-instrumentserif font-bold text-8xl tracking-wide select-none z-0">
         Projects
       </div>
     </section>

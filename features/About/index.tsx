@@ -103,7 +103,7 @@ const AboutSectionFeature: React.FC = () => {
         </motion.div>
       </div>
 
-      <div className="absolute top-[11%] left-[45%] -translate-x-1/2 opacity-10 font-instrumentserif font-bold text-8xl tracking-wide select-none z-0">
+      <div className="absolute top-[42%] md:top-[11%] left-[28%] md:left-[45%] -translate-x-1/2 opacity-10 font-instrumentserif font-bold text-8xl tracking-wide select-none z-0">
         About
       </div>
     </section>

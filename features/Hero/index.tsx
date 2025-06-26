@@ -10,7 +10,7 @@ const HeroSectionFeature = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center container"
+      className="min-h-screen flex items-center justify-center container pt-5 md:pt-0"
     >
       <AnimatedGridPattern
         className="absolute inset-0 -z-10 opacity-40"
@@ -99,7 +99,7 @@ const HeroSectionFeature = () => {
       </div>
 
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}

@@ -107,7 +107,7 @@ const ContactSectionFeature = () => {
         </Form>
       </div>
 
-      <div className="absolute top-[1%] left-1/2 -translate-x-1/2 opacity-10 font-instrumentserif font-bold text-8xl tracking-wide select-none z-0">
+      <div className="absolute top-0 md:top-[1%] left-1/2 -translate-x-1/2 opacity-10 font-instrumentserif font-bold text-8xl tracking-wide select-none z-0">
         Contact
       </div>
     </section>
