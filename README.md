@@ -4,7 +4,7 @@ Ini adalah project website **portofolio pribadi** yang dibuat menggunakan **Next
 
 ## ✨ Demo
 
-🔗 [x]
+🔗 [https://almasrzld-portofolio.vercel.app/]
 
 ## 🛠️ Teknologi yang Digunakan
 
@@ -24,6 +24,7 @@ Ini adalah project website **portofolio pribadi** yang dibuat menggunakan **Next
 │   ├── page.tsx         # Landing page utama
 │   └── globals.css      # Tailwind base styles + custom themes
 ├── components
+│   ├── common           # Splash screen
 │   ├── layout           # Navbar, Footer, ThemeProvider
 │   ├── magicui          # Animated grid pattern
 │   ├── ui               # Button, Badge, dsb. (shadcn/ui)
@@ -32,10 +33,12 @@ Ini adalah project website **portofolio pribadi** yang dibuat menggunakan **Next
 │   ├── Contact
 │   ├── Hero
 │   ├── Project
+│   ├── Skill
 ├── lib
 │   └── utils.ts
 ├── public
-│   └── images
+│   ├── images
+│   └── CV_Muhammad-Almas-Rizaldi.pdf
 ├── README.md
 └── ...
 ```
