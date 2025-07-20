@@ -5,12 +5,12 @@ import { motion } from "motion/react";
 const SkillSectionFeature = () => {
   const SKILLS_ITEMS = [
     { name: "JavaScript", level: 98 },
-    { name: "TypeScript", level: 82 },
-    { name: "React.js", level: 97 },
-    { name: "Next.js", level: 95 },
+    { name: "TypeScript", level: 95 },
+    { name: "React", level: 97 },
+    { name: "Next.js", level: 96 },
     { name: "Express.js", level: 80 },
     { name: "Laravel", level: 85 },
-    { name: "WordPress", level: 86 },
+    { name: "WordPress", level: 83 },
   ];
 
   return (
