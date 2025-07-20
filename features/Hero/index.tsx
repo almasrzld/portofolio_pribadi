@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
 import { ChevronRight, Mail } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import MobileCardCarousel from "@/components/common/mobile-card";
 
 const HeroSectionFeature = () => {
   return (
@@ -62,7 +63,7 @@ const HeroSectionFeature = () => {
           </Button>
         </motion.div>
 
-        <div className="flex justify-center gap-0 md:gap-0 -space-x-52 md:-space-x-20">
+        <div className="hidden md:flex justify-center gap-0 md:gap-0 -space-x-52 md:-space-x-20">
           <Card className="w-60 h-64 z-0 -rotate-6 transition-transform duration-300 hover:-translate-y-16 hover:rotate-0 hover:z-10 cursor-pointer">
             <img
               src="/images/hero-img-1.jpeg"
@@ -96,16 +97,17 @@ const HeroSectionFeature = () => {
             <p className="-mt-2 text-primary">SUGBK</p>
           </Card>
         </div>
+        <MobileCardCarousel />
       </div>
 
       <motion.div
-        className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-5 md:bottom-8 left-1/2 transform -translate-x-1/2 z-40"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
       >
         <motion.div
-          className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center"
+          className="w-5 h-8 md:w-6 md:h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center"
           animate={{ y: [0, 8, 0] }}
           transition={{
             duration: 2,
@@ -114,7 +116,7 @@ const HeroSectionFeature = () => {
           }}
         >
           <motion.div
-            className="w-1 h-3 bg-gray-400 dark:bg-gray-600 rounded-full mt-2"
+            className="w-1 h-2 md:w-1 md:h-3 bg-gray-400 dark:bg-gray-600 rounded-full mt-2"
             animate={{ scaleY: [1, 0.5, 1] }}
             transition={{
               duration: 2,

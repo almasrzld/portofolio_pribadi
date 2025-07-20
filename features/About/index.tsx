@@ -50,29 +50,32 @@ const AboutSectionFeature: React.FC = () => {
 
             <div className="grid gap-2 text-sm sm:text-base">
               <div className="flex">
-                <span className="w-32 font-medium">Name:</span>
+                <span className="w-32 shrink-0 font-medium">Name:</span>
                 <span className="text-muted-foreground">
                   Muhammad Almas Rizaldi
                 </span>
               </div>
               <div className="flex">
-                <span className="w-32 font-medium">Date of Birth:</span>
+                <span className="w-32 shrink-0 font-medium">
+                  Date of Birth:
+                </span>
                 <span className="text-muted-foreground">December 16, 2003</span>
               </div>
-              <div className="flex">
-                <span className="w-32 font-medium">Address:</span>
-                <span className="text-muted-foreground">
-                  Purworejo Village RT 04 RW 02 Kaliori, Rembang
+              <div className="flex items-start">
+                <span className="w-32 shrink-0 font-medium">Address:</span>
+                <span className="text-muted-foreground max-w-xs">
+                  Purworejo Village RT 04 RW 02 Kaliori, Rembang, Central Java,
+                  Indonesia
                 </span>
               </div>
               <div className="flex">
-                <span className="w-32 font-medium">Email:</span>
+                <span className="w-32 shrink-0 font-medium">Email:</span>
                 <span className="text-muted-foreground">
                   almasrzld@gmail.com
                 </span>
               </div>
               <div className="flex">
-                <span className="w-32 font-medium">Phone:</span>
+                <span className="w-32 shrink-0 font-medium">Phone:</span>
                 <span className="text-muted-foreground">
                   +62 895-4125-28975
                 </span>
