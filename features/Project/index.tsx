@@ -9,7 +9,7 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 type Project = {
   title: string;

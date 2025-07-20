@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const SplashScreen = () => {
   const TEXT_ITEMS = ["WELCOME", "TO", "MY", "PERSONAL", "PORTFOLIO"];

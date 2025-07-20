@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ThemeToggle } from "./toggle-darkmode";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Menu } from "lucide-react";
 import {
   Sheet,
@@ -74,12 +74,12 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-4 left-0 right-0 z-[999] transition-all duration-300 ${
+      className={`fixed top-4 left-0 right-0 z-[999] transition-all duration-300 ease-in-out ${
         scrolled ? "px-4" : ""
       }`}
     >
       <div
-        className={`container transition-all duration-300 ${
+        className={`container transition-all duration-300 ease-in-out ${
           scrolled
             ? "bg-background/80 backdrop-blur-md shadow-md dark:shadow-purple-500/30 rounded-full py-1 md:py-3"
             : "py-2 md:py-4"

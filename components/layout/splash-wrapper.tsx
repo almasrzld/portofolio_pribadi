@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import SplashScreen from "../common/splash-screen";
 
 const SplashWrapper = ({ children }: { children: React.ReactNode }) => {

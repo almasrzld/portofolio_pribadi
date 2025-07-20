@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
 import { Download } from "lucide-react";
 
@@ -80,7 +80,7 @@ const AboutSectionFeature: React.FC = () => {
             </div>
 
             <Button asChild>
-              <a href="/CV_Muhammad-Almas-Rizaldi.pdf" download>
+              <a href="/Resume_Muhammad Almas Rizaldi.pdf" download>
                 Download CV <Download className="w-5 h-5" />
               </a>
             </Button>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
 import { ChevronRight, Mail } from "lucide-react";
