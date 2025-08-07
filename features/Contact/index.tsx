@@ -14,18 +14,19 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { toast } from "sonner";
 
-const contactSchema = z.object({
+const ContactSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
   email: z.string().email({ message: "Invalid email address" }),
   message: z.string().min(1, { message: "Message is required" }),
 });
 
-type ContactFormValues = z.infer<typeof contactSchema>;
+type IContactSchema = z.infer<typeof ContactSchema>;
 
 const ContactSectionFeature = () => {
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactSchema),
+  const form = useForm<IContactSchema>({
+    resolver: zodResolver(ContactSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -33,9 +34,32 @@ const ContactSectionFeature = () => {
     },
   });
 
-  const onSubmit = (data: ContactFormValues) => {
-    console.log("Submitted:", data);
-    // Here you could send the data to an API or external service
+  const onSubmit = async (data: IContactSchema) => {
+    const body = new URLSearchParams({
+      ...data,
+      _subject: "New Collaboration Request!",
+      _captcha: "false",
+      _template: "box",
+    });
+
+    try {
+      const res = await fetch("https://formsubmit.co/almasrzld@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: body.toString(),
+      });
+
+      if (res.ok) {
+        toast.success("Message sent successfully!");
+        form.reset();
+      } else {
+        toast.error("Failed to send message");
+      }
+    } catch (err) {
+      toast.error("An error occurred while sending the message");
+    }
   };
 
   return (
@@ -54,6 +78,14 @@ const ContactSectionFeature = () => {
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <Input
+              type="hidden"
+              name="_subject"
+              value="New Collaboration Request!"
+            />
+            <Input type="hidden" name="_captcha" value="false" />
+            <Input type="hidden" name="_template" value="box" />
+
             <FormField
               control={form.control}
               name="name"
@@ -100,8 +132,12 @@ const ContactSectionFeature = () => {
               )}
             />
 
-            <Button type="submit" className="w-full">
-              Send Message
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={form.formState.isSubmitting}
+            >
+              {form.formState.isSubmitting ? "Sending..." : "Send Message"}
             </Button>
           </form>
         </Form>

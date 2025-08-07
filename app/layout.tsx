@@ -3,6 +3,7 @@ import { Outfit, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import SplashWrapper from "@/components/layout/splash-wrapper";
 import ThemeProvider from "@/components/layout/provider";
+import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 
@@ -39,6 +40,7 @@ export default function RootLayout({
             {children}
             <Footer />
           </SplashWrapper>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
