@@ -82,11 +82,11 @@ const Navbar = () => {
         className={`container transition-all duration-300 ease-in-out ${
           scrolled
             ? "bg-background/80 backdrop-blur-md shadow-md dark:shadow-purple-500/30 rounded-full py-1 md:py-3"
-            : "py-2 md:py-4"
+            : "py-1 md:py-4"
         }`}
       >
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-instrumentserif font-bold italic hover-neon">
+          <h1 className="text-xl md:text-2xl font-instrumentserif font-bold hover-neon">
             <Link href="/" onClick={() => setActiveSection("#home")}>
               Almasrzld.
             </Link>

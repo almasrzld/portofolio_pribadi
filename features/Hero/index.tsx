@@ -22,7 +22,7 @@ const HeroSectionFeature = () => {
         maxOpacity={0.08}
       />
 
-      <div className="text-center space-y-8">
+      <div className="text-center space-y-6 md:space-y-8">
         <motion.h1
           className="text-4xl md:text-6xl font-bold leading-tight text-primary font-instrumentserif"
           initial={{ opacity: 0, y: 30 }}

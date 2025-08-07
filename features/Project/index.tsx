@@ -10,9 +10,11 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 type Project = {
   title: string;
+  image: string;
   description: string;
   techStack: string[];
   repo: string;
@@ -22,6 +24,7 @@ type Project = {
 const projects: Project[] = [
   {
     title: "Sistem Informasi Manajemen Kejuaraan Taekwondo",
+    image: "/images/project1.png",
     description:
       "A fullstack web app for managing national Taekwondo championships including registration, bracket system, and automated reports.",
     techStack: [
@@ -37,6 +40,7 @@ const projects: Project[] = [
   },
   {
     title: "Futsal Field Reservation – Mini Project MSIB",
+    image: "/images/project2.png",
     description:
       "Futsal booking app with AI suggestions, built using Next.js, TypeScript, and React Query.",
     techStack: [
@@ -51,6 +55,7 @@ const projects: Project[] = [
   },
   {
     title: "Plantopia – Capstone Project MSIB",
+    image: "/images/project3.png",
     description:
       "A plant care web app built with Next.js, Redux Toolkit, and React-Quill, featuring a clean UI with DaisyUI and animations using Framer Motion.",
     techStack: [
@@ -65,6 +70,7 @@ const projects: Project[] = [
   },
   {
     title: "Magang Dinsos Surakarta",
+    image: "/images/project4.png",
     description:
       "An internal tool for Dinsos Surakarta built with Next.js, Google APIs, and SheetJS, featuring clean UI with Tailwind CSS and ShadCN.",
     techStack: [
@@ -78,18 +84,28 @@ const projects: Project[] = [
     demo: "https://dinsos-surakarta.vercel.app/",
   },
   {
-    title: "Portfolio Website",
+    title: "Management Article – Seller Pintar",
+    image: "/images/project5.png",
     description:
-      "Responsive portfolio site built with Next.js, showcasing projects, skills, and contact section with dark mode support.",
+      "A content management platform for managing, posting, and editing articles. Built with modern tech stack and optimized for maintainability and performance.",
     techStack: [
       "Next.js",
       "TypeScript",
       "Tailwind CSS",
       "ShadCN UI",
-      "Framer Motion",
+      "React Query",
     ],
-    repo: "https://github.com/almasrzld/portofolio_pribadi",
-    demo: "#home",
+    repo: "https://github.com/almasrzld/test_sellerpintar",
+    demo: "https://almasrzld-sellerpintar.vercel.app/",
+  },
+  {
+    title: "Open AI",
+    image: "/images/project6.png",
+    description:
+      "An experimental AI web app using Gemini API to demonstrate basic AI integration, prompt handling, and response visualization built with Vite and Tailwind.",
+    techStack: ["Vite.js", "Gemini API", "Tailwind CSS"],
+    repo: "https://github.com/almasrzld/react_muhammad-almas-rizaldi/tree/main/28_Basic%20Model%20OpenAI%20dan%20Prompt%20Engginer%20di%20React/praktikum/latihan",
+    demo: "https://almasrzld.vercel.app/",
   },
 ];
 
@@ -126,6 +142,16 @@ const ProjectSectionFeature = () => {
                 </CardHeader>
 
                 <CardContent className="space-y-4">
+                  <div className="relative w-full overflow-hidden rounded-lg border">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={1000}
+                      height={600}
+                      className="object-contain w-full h-auto"
+                    />
+                  </div>
+
                   <p className="text-muted-foreground">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
@@ -162,7 +188,7 @@ const ProjectSectionFeature = () => {
         </div>
       </div>
 
-      <div className="absolute top-[3.5%] md:top-[7%] left-1/2 -translate-x-1/2 opacity-10 font-instrumentserif font-bold text-8xl tracking-wide select-none z-0">
+      <div className="absolute top-[2%] md:top-[4%] left-1/2 -translate-x-1/2 opacity-10 font-instrumentserif font-bold text-8xl tracking-wide select-none z-0">
         Projects
       </div>
     </section>
