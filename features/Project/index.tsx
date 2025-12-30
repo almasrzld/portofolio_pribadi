@@ -107,6 +107,15 @@ const projects: Project[] = [
     repo: "https://github.com/almasrzld/react_muhammad-almas-rizaldi/tree/main/28_Basic%20Model%20OpenAI%20dan%20Prompt%20Engginer%20di%20React/praktikum/latihan",
     demo: "https://almasrzld.vercel.app/",
   },
+  {
+    title: "Sistem Informasi Administrasi Pondok Pesantren",
+    image: "/images/project7.png",
+    description:
+      "A web-based management information system for student (santri) administration, featuring registration, authentication, data management, and admin verification workflows built with Laravel.",
+    techStack: ["Laravel", "MySQL", "Tailwind CSS"],
+    repo: "https://github.com/almasrzld/project_pondok",
+    demo: "",
+  },
 ];
 
 const ProjectSectionFeature = () => {
@@ -163,15 +172,17 @@ const ProjectSectionFeature = () => {
                 </CardContent>
 
                 <CardFooter className="flex gap-4 mt-auto pt-4">
-                  <Button asChild size="sm">
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Live Demo
-                    </a>
-                  </Button>
+                  {project.demo && (
+                    <Button asChild size="sm">
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
                   <Button asChild variant="outline" size="sm">
                     <a
                       href={project.repo}
@@ -188,7 +199,7 @@ const ProjectSectionFeature = () => {
         </div>
       </div>
 
-      <div className="absolute top-[2%] md:top-[4%] left-1/2 -translate-x-1/2 opacity-10 font-instrumentserif font-bold text-8xl tracking-wide select-none z-0">
+      <div className="absolute top-[2%] md:top-[3%] left-1/2 -translate-x-1/2 opacity-10 font-instrumentserif font-bold text-8xl tracking-wide select-none z-0">
         Projects
       </div>
     </section>

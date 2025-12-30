@@ -83,7 +83,7 @@ const AboutSectionFeature: React.FC = () => {
             </div>
 
             <Button asChild>
-              <a href="/CV-Muhammad Almas Rizaldi.pdf" download>
+              <a href="/CV-Muhammad Almas Rizaldi-Indo.pdf" download>
                 Download CV <Download className="w-5 h-5" />
               </a>
             </Button>
