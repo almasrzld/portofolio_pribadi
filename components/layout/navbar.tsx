@@ -34,7 +34,7 @@ const Navbar = () => {
       }
     );
 
-    const sectionIds = ["home", "about", "skill", "project", "contact"];
+    const sectionIds = ["home", "about", "skill", "experience", "project", "contact"];
     sectionIds.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
@@ -61,6 +61,10 @@ const Navbar = () => {
     {
       name: "Skill",
       path: "#skill",
+    },
+    {
+      name: "Experience",
+      path: "#experience",
     },
     {
       name: "Project",
