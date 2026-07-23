@@ -6,6 +6,7 @@ import ThemeProvider from "@/components/layout/provider";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
+import AIChatWidget from "@/components/layout/ai-chat-widget";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -40,6 +41,7 @@ export default function RootLayout({
             {children}
             <Footer />
           </SplashWrapper>
+          <AIChatWidget />
           <Toaster />
         </ThemeProvider>
       </body>
