@@ -209,7 +209,7 @@ const AboutSectionFeature: React.FC = () => {
               </div>
 
               <Button asChild>
-                <a href="/CV-Muhammad Almas Rizaldi-Indo.pdf" download className="flex items-center gap-2">
+                <a href="/New-CV-Muhammad Almas Rizaldi.pdf" download className="flex items-center gap-2">
                   Download CV <Download className="w-5 h-5" />
                 </a>
               </Button>
