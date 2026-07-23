@@ -6,52 +6,56 @@ import SplashScreen from "../common/splash-screen";
 
 const SplashWrapper = ({ children }: { children: React.ReactNode }) => {
   const [showSplash, setShowSplash] = useState(true);
-  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    const splashDuration = 3000;
+    // Lock body scroll and force page position to top (0, 0) while splash is active
+    document.body.style.overflow = "hidden";
+    window.scrollTo(0, 0);
 
-    const splashTimeout = setTimeout(() => {
+    const splashDuration = 2400;
+    const timer = setTimeout(() => {
       setShowSplash(false);
-
-      const contentTimeout = setTimeout(() => {
-        setShowContent(true);
-      }, 100);
-
-      return () => clearTimeout(contentTimeout);
+      document.body.style.overflow = "";
     }, splashDuration);
 
-    return () => clearTimeout(splashTimeout);
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = "";
+    };
   }, []);
 
   return (
     <>
+      {/* Ultra-Smooth Parallax Curtain Overlay Layer */}
       <AnimatePresence>
         {showSplash && (
           <motion.div
-            key="splash"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 1 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            key="splash-curtain"
+            initial={{ y: "0%" }}
+            exit={{ y: "-100%" }}
+            transition={{
+              duration: 1.1,
+              ease: [0.87, 0, 0.13, 1], // Ultra-fluid custom ease-in-out curve
+            }}
+            className="fixed inset-0 z-[9999] pointer-events-auto bg-background overflow-hidden shadow-2xl"
           >
             <SplashScreen />
           </motion.div>
         )}
       </AnimatePresence>
 
-      <AnimatePresence>
-        {showContent && (
-          <motion.div
-            key="main"
-            initial={{ y: "100%", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: "100%", opacity: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-          >
-            {children}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Main Page Content Layer with Synchronous Parallax Reveal */}
+      <motion.div
+        initial={{ opacity: 0, y: 40, scale: 0.97 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{
+          duration: 1.2,
+          delay: 2.1,
+          ease: [0.25, 1, 0.5, 1], // Soft deceleration curve
+        }}
+      >
+        {children}
+      </motion.div>
     </>
   );
 };
