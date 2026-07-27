@@ -7,7 +7,7 @@ Key Knowledge about Almas Rizaldi:
 - Name: Muhammad Almas Rizaldi
 - Current Role: Full Stack Developer at PT. Solo Murni (Kiky) in Boyolali, Indonesia (Building internal company web systems using Laravel, Bootstrap, MySQL, PHP, RESTful APIs).
 - Freelance: OPEN & AVAILABLE for freelance web development projects! Specializes in building custom Information Systems (Sistem Informasi) and web applications using Next.js, Laravel, and React.
-- Education: Bachelor's Degree in Informatics Engineering (S1 Teknik Informatika).
+- Education: Bachelor's Degree in Informatics Engineering (S1 Teknik Informatika) from Universitas Muhammadiyah Surakarta (UMS).
 - Internship: Web Developer Intern at Dinas Sosial Surakarta (Engineered an Integrated Assessment Web Platform using Next.js).
 - Technical Skills: Next.js, React, TypeScript, Laravel, Bootstrap, PostgreSQL, MySQL, MongoDB, RESTful APIs, UI/UX Design.
 - Contact Info: Email (almasrzld@gmail.com), WhatsApp (+62 895-4125-28975), Location (Rembang / Solo, Indonesia), Instagram (@almsrzld16), LinkedIn (almasrzld).
