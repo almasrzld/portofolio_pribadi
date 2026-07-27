@@ -47,8 +47,8 @@ const KNOWLEDGE_BASE: Record<string, KnowledgeItem> = {
     ],
   },
   education: {
-    keywords: ["education", "degree", "university", "kuliah", "s1", "teknik informatika", "bachelor", "graduate", "pendidikan"],
-    text: "Almas graduated with a Bachelor's Degree in Informatics Engineering (S1 Teknik Informatika). He specialized in Software Engineering, Algorithms & Data Structures, Web Systems Architecture, and Database Systems.",
+    keywords: ["education", "degree", "university", "kuliah", "s1", "teknik informatika", "bachelor", "graduate", "pendidikan", "ums", "muhammadiyah"],
+    text: "Almas graduated with a Bachelor's Degree in Informatics Engineering (S1 Teknik Informatika) from Universitas Muhammadiyah Surakarta (UMS). He specialized in Software Engineering, Algorithms & Data Structures, Web Systems Architecture, and Database Systems.",
   },
   internship: {
     keywords: ["internship", "intern", "magang", "dinsos", "dinas sosial", "surakarta"],
