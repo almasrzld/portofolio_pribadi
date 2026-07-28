@@ -4,7 +4,7 @@ import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/common/image-with-skeleton";
 import { ExternalLink, Github, Sparkles } from "lucide-react";
 
 type ProjectCategory = "All" | "Next.js" | "Laravel" | "AI & Web";
@@ -167,12 +167,14 @@ const ProjectSectionFeature = () => {
                 <div>
                   {/* Image Container with Zoom & Badge Overlay */}
                   <div className="relative w-full aspect-video overflow-hidden rounded-2xl border border-border/40 bg-background/50 mb-5">
-                    <Image
+                    <ImageWithSkeleton
                       src={project.image}
                       alt={project.title}
                       fill
+                      loading="lazy"
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover object-top w-full h-full group-hover:scale-105 transition-transform duration-500 ease-out"
+                      containerClassName="w-full h-full aspect-video rounded-2xl"
                     />
                     {project.isFeatured && (
                       <div className="absolute top-3 right-3 z-10">

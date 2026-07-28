@@ -7,6 +7,8 @@ import { ChevronRight, Mail } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import MobileCardCarousel from "@/components/common/mobile-card";
 
+import { ImageWithSkeleton } from "@/components/common/image-with-skeleton";
+
 const HeroSectionFeature = () => {
   return (
     <section
@@ -64,37 +66,53 @@ const HeroSectionFeature = () => {
         </motion.div>
 
         <div className="hidden md:flex justify-center gap-0 md:gap-0 -space-x-52 md:-space-x-20">
-          <Card className="w-60 h-64 z-0 -rotate-6 transition-transform duration-300 hover:-translate-y-16 hover:rotate-0 hover:z-10 cursor-pointer">
-            <img
+          <Card className="w-60 h-64 z-0 -rotate-6 transition-transform duration-300 hover:-translate-y-16 hover:rotate-0 hover:z-10 cursor-pointer overflow-hidden p-0 pt-3">
+            <ImageWithSkeleton
               src="/images/hero-img-1.jpeg"
-              alt="Hero1"
+              alt="Midodaren"
+              width={208}
+              height={176}
+              loading="lazy"
               className="h-44 w-52 mx-auto object-cover rounded-md"
+              containerClassName="h-44 w-52 mx-auto rounded-md"
             />
-            <p className="-mt-2 text-primary">Midodaren</p>
+            <p className="mt-1 text-primary">Midodaren</p>
           </Card>
-          <Card className="w-60 h-64 z-0 rotate-6 mt-4 transition-transform duration-300 hover:-translate-y-16 hover:rotate-0 hover:z-10 cursor-pointer">
-            <img
+          <Card className="w-60 h-64 z-0 rotate-6 mt-4 transition-transform duration-300 hover:-translate-y-16 hover:rotate-0 hover:z-10 cursor-pointer overflow-hidden p-0 pt-3">
+            <ImageWithSkeleton
               src="/images/hero-img-2.jpeg"
-              alt="Hero2"
+              alt="Karimun Jawa"
+              width={208}
+              height={176}
+              loading="lazy"
               className="h-44 w-52 mx-auto object-cover rounded-md"
+              containerClassName="h-44 w-52 mx-auto rounded-md"
             />
-            <p className="-mt-2 text-primary">Karimun Jawa</p>
+            <p className="mt-1 text-primary">Karimun Jawa</p>
           </Card>
-          <Card className="w-60 h-64 z-0 -rotate-6 mt-4 transition-transform duration-300 hover:-translate-y-16 hover:rotate-0 hover:z-10 cursor-pointer">
-            <img
+          <Card className="w-60 h-64 z-0 -rotate-6 mt-4 transition-transform duration-300 hover:-translate-y-16 hover:rotate-0 hover:z-10 cursor-pointer overflow-hidden p-0 pt-3">
+            <ImageWithSkeleton
               src="/images/hero-img-3.jpeg"
-              alt="Hero3"
+              alt="My Love"
+              width={208}
+              height={176}
+              loading="lazy"
               className="h-44 w-52 mx-auto object-cover rounded-md"
+              containerClassName="h-44 w-52 mx-auto rounded-md"
             />
-            <p className="-mt-2 text-primary">My Love</p>
+            <p className="mt-1 text-primary">My Love</p>
           </Card>
-          <Card className="w-60 h-64 z-0 rotate-6 transition-transform duration-300 hover:-translate-y-16 hover:rotate-0 hover:z-10 cursor-pointer">
-            <img
+          <Card className="w-60 h-64 z-0 rotate-6 transition-transform duration-300 hover:-translate-y-16 hover:rotate-0 hover:z-10 cursor-pointer overflow-hidden p-0 pt-3">
+            <ImageWithSkeleton
               src="/images/hero-img-4.jpeg"
-              alt="Hero4"
+              alt="SUGBK"
+              width={208}
+              height={176}
+              loading="lazy"
               className="h-44 w-52 mx-auto object-cover rounded-md"
+              containerClassName="h-44 w-52 mx-auto rounded-md"
             />
-            <p className="-mt-2 text-primary">SUGBK</p>
+            <p className="mt-1 text-primary">SUGBK</p>
           </Card>
         </div>
         <MobileCardCarousel />

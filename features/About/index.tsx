@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/common/image-with-skeleton";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { animate, motion, useMotionValue } from "motion/react";
@@ -136,13 +136,14 @@ const AboutSectionFeature: React.FC = () => {
 
                   {/* Avatar Photo Frame */}
                   <div className="relative overflow-hidden rounded-xl bg-card border border-border/60 aspect-[3/4] w-full">
-                    <Image
+                    <ImageWithSkeleton
                       src="/images/avatar-img.png"
                       alt="Muhammad Almas Rizaldi"
                       width={400}
                       height={600}
+                      loading="lazy"
                       className="w-full h-full object-cover object-top pointer-events-none"
-                      priority
+                      containerClassName="w-full h-full aspect-[3/4] rounded-xl"
                     />
                   </div>
 
@@ -220,12 +221,14 @@ const AboutSectionFeature: React.FC = () => {
                   GitHub Contributions
                 </h3>
                 <div>
-                  <Image
+                  <ImageWithSkeleton
                     src="/images/contribution-img.png"
                     alt="GitHub Stats"
                     width={700}
                     height={200}
+                    loading="lazy"
                     className="w-full h-auto rounded-xl object-contain"
+                    containerClassName="w-full rounded-xl"
                   />
                 </div>
               </div>
