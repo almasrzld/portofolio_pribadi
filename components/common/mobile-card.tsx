@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { ImageWithSkeleton } from "@/components/common/image-with-skeleton";
 
 const cards = [
   { src: "/images/hero-img-1.jpeg", label: "Midodaren" },
@@ -29,18 +30,22 @@ const MobileCardCarousel = () => {
           <Card
             key={i}
             className={cn(
-              "absolute w-56 h-60 transition-all duration-300 cursor-pointer",
+              "absolute w-56 h-60 transition-all duration-300 cursor-pointer overflow-hidden p-0 pt-3",
               offset === 2 && "z-30 scale-100 rotate-0",
               offset === 1 && "z-20 scale-95 rotate-[6deg] translate-x-4",
               offset === 0 && "z-10 scale-90 rotate-[9deg] translate-x-8"
             )}
           >
-            <img
+            <ImageWithSkeleton
               src={card.src}
               alt={card.label}
+              width={192}
+              height={160}
+              loading="lazy"
               className="h-40 w-48 mx-auto object-cover rounded-md"
+              containerClassName="h-40 w-48 mx-auto rounded-md"
             />
-            <p className="-mt-2 text-primary text-center">{card.label}</p>
+            <p className="mt-1 text-primary text-center">{card.label}</p>
           </Card>
         );
       })}

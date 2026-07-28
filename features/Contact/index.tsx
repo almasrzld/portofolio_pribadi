@@ -379,8 +379,8 @@ const ContactSectionFeature = () => {
                           type="button"
                           onClick={() => setSelectedTopic(topic)}
                           className={`text-xs px-3 py-1.5 rounded-full border transition-all duration-300 ${isSelected
-                              ? "bg-purple-500/20 border-purple-500 text-purple-400 font-semibold"
-                              : "bg-background/40 border-border/60 text-muted-foreground hover:text-foreground hover:border-border"
+                            ? "bg-purple-500/20 border-purple-500 text-purple-400 font-semibold"
+                            : "bg-background/40 border-border/60 text-muted-foreground hover:text-foreground hover:border-border"
                             }`}
                         >
                           {topic}
@@ -417,7 +417,7 @@ const ContactSectionFeature = () => {
                           </FormLabel>
                           <FormControl>
                             <Input
-                              placeholder="John Doe"
+                              placeholder="Almas Rizaldi"
                               {...field}
                               className="rounded-xl bg-background/60 border-border/60 focus:border-purple-500 focus:ring-purple-500/20"
                             />
