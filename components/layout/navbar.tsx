@@ -118,12 +118,13 @@ const Navbar = () => {
         }`}
       >
         <div className="flex justify-between items-center">
-          <h1 className="text-xl md:text-2xl font-instrumentserif font-bold hover-neon">
+          <h1 className="text-xl md:text-2xl font-instrumentserif font-bold hover-neon border-none outline-none select-none">
             <Link
               href="/"
               onClick={(e) =>
                 handleNavClick(e, { path: "/#home", id: "#home" })
               }
+              className="border-none outline-none focus:outline-none focus:ring-0 focus-visible:outline-none"
             >
               Almasrzld.
             </Link>
@@ -135,6 +136,7 @@ const Navbar = () => {
                 <Link
                   href={item.path}
                   onClick={(e) => handleNavClick(e, item)}
+                  className="border-none outline-none focus:outline-none focus:ring-0 focus-visible:outline-none"
                 >
                   <motion.div
                     className="relative cursor-pointer"
@@ -187,7 +189,7 @@ const Navbar = () => {
                       key={index}
                       href={item.path}
                       onClick={(e) => handleNavClick(e, item)}
-                      className={`block px-2 py-1 text-lg rounded-md transition-colors ${
+                      className={`block px-2 py-1 text-lg rounded-md transition-colors border-none outline-none focus:outline-none focus:ring-0 ${
                         activeSection === item.id
                           ? "text-primary font-semibold"
                           : "text-muted-foreground"

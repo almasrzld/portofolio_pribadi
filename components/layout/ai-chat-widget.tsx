@@ -124,6 +124,106 @@ function getLocalResponse(query: string): { text: string; actionLinks?: { label:
     ],
   };
 }
+/**
+ * Custom recursive inline markdown parser for bold (**text** or __text__),
+ * italic (*text* or _text_), code (`code`), and line breaks.
+ */
+function parseMarkdownText(content: string): React.ReactNode {
+  if (!content) return null;
+
+  const lines = content.split("\n");
+  return lines.map((line, lineIdx) => {
+    // Bullet list items (* item or - item)
+    const listMatch = line.match(/^[\*\-]\s+(.*)/);
+    if (listMatch) {
+      return (
+        <li key={lineIdx} className="ml-4 list-disc text-xs my-0.5">
+          {parseInline(listMatch[1])}
+        </li>
+      );
+    }
+
+    // Numbered list items (1. item)
+    const numMatch = line.match(/^(\d+)\.\s+(.*)/);
+    if (numMatch) {
+      return (
+        <li key={lineIdx} className="ml-4 list-decimal text-xs my-0.5">
+          {parseInline(numMatch[2])}
+        </li>
+      );
+    }
+
+    return (
+      <React.Fragment key={lineIdx}>
+        {parseInline(line)}
+        {lineIdx < lines.length - 1 && <br />}
+      </React.Fragment>
+    );
+  });
+}
+
+function parseInline(text: string): React.ReactNode[] {
+  const nodes: React.ReactNode[] = [];
+  let remaining = text;
+  let key = 0;
+
+  while (remaining.length > 0) {
+    // Bold **text** or __text__
+    const boldMatch = remaining.match(/^(\*\*|__)(.*?)\1/);
+    if (boldMatch) {
+      nodes.push(
+        <strong key={key++} className="font-bold text-foreground">
+          {parseInline(boldMatch[2])}
+        </strong>
+      );
+      remaining = remaining.slice(boldMatch[0].length);
+      continue;
+    }
+
+    // Inline Code `text`
+    const codeMatch = remaining.match(/^`(.*?)`/);
+    if (codeMatch) {
+      nodes.push(
+        <code
+          key={key++}
+          className="px-1.5 py-0.5 rounded bg-muted font-mono text-[11px] text-purple-300 border border-purple-500/20"
+        >
+          {codeMatch[1]}
+        </code>
+      );
+      remaining = remaining.slice(codeMatch[0].length);
+      continue;
+    }
+
+    // Italic *text* or _text_
+    const italicMatch = remaining.match(/^(\*|_)(.*?)\1/);
+    if (italicMatch) {
+      nodes.push(
+        <em key={key++} className="italic opacity-90">
+          {parseInline(italicMatch[2])}
+        </em>
+      );
+      remaining = remaining.slice(italicMatch[0].length);
+      continue;
+    }
+
+    // Normal Text slice up to next Markdown character (*, _, `)
+    const nextSpecialChar = remaining.search(/[\*_`]/);
+    if (nextSpecialChar === -1) {
+      nodes.push(remaining);
+      break;
+    } else if (nextSpecialChar > 0) {
+      nodes.push(remaining.slice(0, nextSpecialChar));
+      remaining = remaining.slice(nextSpecialChar);
+    } else {
+      // If a single orphan * or _ appears without closing match, render literally
+      nodes.push(remaining[0]);
+      remaining = remaining.slice(1);
+    }
+  }
+
+  return nodes;
+}
 
 const AIChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -310,13 +410,13 @@ const AIChatWidget = () => {
 
                   <div className={`max-w-[80%] space-y-2`}>
                     <div
-                      className={`p-3.5 rounded-2xl leading-relaxed whitespace-pre-wrap ${
+                      className={`p-3.5 rounded-2xl leading-relaxed ${
                         msg.sender === "user"
                           ? "bg-purple-600 text-white rounded-tr-none shadow-md"
                           : "bg-background/60 border border-border/60 text-foreground rounded-tl-none shadow-sm"
                       }`}
                     >
-                      {msg.text}
+                      {parseMarkdownText(msg.text)}
                     </div>
 
                     {/* Action Links if available */}

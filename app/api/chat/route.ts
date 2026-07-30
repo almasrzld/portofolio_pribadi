@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
+const isProduction =
+  process.env.NODE_ENV === "production" ||
+  process.env.VERCEL_ENV === "production";
+
 // Zod Schema for input payload validation & sanitization
 const chatRequestSchema = z.object({
   message: z
@@ -67,7 +71,9 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         error: "Validation failed",
-        details: validation.error.flatten().fieldErrors,
+        ...(isProduction
+          ? {}
+          : { details: validation.error.flatten().fieldErrors }),
       },
       { status: 400 }
     );
@@ -126,11 +132,15 @@ export async function POST(req: Request) {
           );
         }
       } else {
-        const errData = await response.text();
-        console.error(`[Gemini API Error - ${model}]:`, errData);
+        if (!isProduction) {
+          const errData = await response.text();
+          console.error(`[Gemini API Error - ${model}]:`, errData);
+        }
       }
     } catch (err) {
-      console.error(`[Gemini API Fetch Error - ${model}]:`, err);
+      if (!isProduction) {
+        console.error(`[Gemini API Fetch Error - ${model}]:`, err);
+      }
     }
   }
 
