@@ -16,6 +16,7 @@ const HeroSectionFeature = () => {
       className="min-h-screen flex items-center justify-center container pt-5 md:pt-0"
     >
       <AnimatedGridPattern
+        id="hero-animated-grid-pattern"
         className="absolute inset-0 -z-10 opacity-40"
         width={60}
         height={60}

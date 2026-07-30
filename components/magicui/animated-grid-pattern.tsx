@@ -4,7 +4,6 @@ import { motion } from "motion/react";
 import {
   ComponentPropsWithoutRef,
   useEffect,
-  useId,
   useRef,
   useState,
 } from "react";
@@ -35,10 +34,9 @@ export function AnimatedGridPattern({
   maxOpacity = 0.5,
   duration = 4,
   repeatDelay = 0.5,
+  id = "animated-grid-pattern",
   ...props
 }: AnimatedGridPatternProps) {
-  const reactId = useId();
-  const id = props.id || reactId;
   const containerRef = useRef<SVGSVGElement | null>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [squares, setSquares] = useState<Array<{ id: number; pos: number[] }>>([]);
