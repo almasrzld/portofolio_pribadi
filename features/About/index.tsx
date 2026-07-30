@@ -48,7 +48,7 @@ const AboutSectionFeature: React.FC = () => {
   return (
     <section
       id="about"
-      className="bg-background text-foreground relative py-20 overflow-hidden"
+      className="bg-background text-foreground relative py-20 overflow-visible"
     >
       <div className="container relative z-10">
         <motion.div

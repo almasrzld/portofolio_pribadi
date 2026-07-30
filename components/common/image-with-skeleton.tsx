@@ -18,6 +18,7 @@ export function ImageWithSkeleton({
   containerClassName,
   skeletonClassName,
   loading = "lazy",
+  quality = 85,
   onLoad,
   fill,
   ...props
@@ -44,6 +45,7 @@ export function ImageWithSkeleton({
         src={src}
         alt={alt}
         loading={loading}
+        quality={quality}
         fill={fill}
         onLoad={(e) => {
           setIsLoading(false);

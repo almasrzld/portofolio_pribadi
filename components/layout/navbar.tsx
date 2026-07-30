@@ -14,67 +14,95 @@ import {
 } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
+const NAVBAR_ITEMS = [
+  {
+    name: "Home",
+    path: "/#home",
+    id: "#home",
+  },
+  {
+    name: "About",
+    path: "/#about",
+    id: "#about",
+  },
+  {
+    name: "Skill",
+    path: "/#skill",
+    id: "#skill",
+  },
+  {
+    name: "Experience",
+    path: "/#experience",
+    id: "#experience",
+  },
+  {
+    name: "Project",
+    path: "/#project",
+    id: "#project",
+  },
+  {
+    name: "Contact",
+    path: "/#contact",
+    id: "#contact",
+  },
+];
+
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("#home");
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(`#${entry.target.id}`);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+
+      // Determine active section based on current scroll position
+      const sectionIds = ["home", "about", "skill", "experience", "project", "contact"];
+      const scrollPosition = window.scrollY + 200; // Account for fixed navbar offset
+
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const id = sectionIds[i];
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(`#${id}`);
+            break;
           }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "-30% 0px -70% 0px",
-        threshold: 0,
+        }
       }
-    );
+    };
 
-    const sectionIds = ["home", "about", "skill", "experience", "project", "contact"];
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
+    // Recalculate section positions after splash screen animation finishes
+    const splashTimer = setTimeout(() => {
+      handleScroll();
+    }, 2600);
 
     return () => {
-      observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
+      clearTimeout(splashTimer);
     };
   }, []);
 
-  const NAVBAR_ITEMS = [
-    {
-      name: "Home",
-      path: "#home",
-    },
-    {
-      name: "About",
-      path: "#about",
-    },
-    {
-      name: "Skill",
-      path: "#skill",
-    },
-    {
-      name: "Experience",
-      path: "#experience",
-    },
-    {
-      name: "Project",
-      path: "#project",
-    },
-    {
-      name: "Contact",
-      path: "#contact",
-    },
-  ];
+  const handleNavClick = (
+    e: React.MouseEvent,
+    item: { path: string; id: string }
+  ) => {
+    setActiveSection(item.id);
+
+    // If currently on the homepage, perform smooth in-page scrolling
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+      const targetId = item.id.replace("#", "");
+      const el = document.getElementById(targetId);
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", item.path);
+      }
+    }
+  };
 
   return (
     <nav
@@ -90,8 +118,14 @@ const Navbar = () => {
         }`}
       >
         <div className="flex justify-between items-center">
-          <h1 className="text-xl md:text-2xl font-instrumentserif font-bold hover-neon">
-            <Link href="/" onClick={() => setActiveSection("#home")}>
+          <h1 className="text-xl md:text-2xl font-instrumentserif font-bold hover-neon border-none outline-none select-none">
+            <Link
+              href="/"
+              onClick={(e) =>
+                handleNavClick(e, { path: "/#home", id: "#home" })
+              }
+              className="border-none outline-none focus:outline-none focus:ring-0 focus-visible:outline-none"
+            >
               Almasrzld.
             </Link>
           </h1>
@@ -99,7 +133,11 @@ const Navbar = () => {
           <ul className="hidden md:flex items-center gap-8">
             {NAVBAR_ITEMS.map((item, index) => (
               <li key={index}>
-                <Link href={item.path}>
+                <Link
+                  href={item.path}
+                  onClick={(e) => handleNavClick(e, item)}
+                  className="border-none outline-none focus:outline-none focus:ring-0 focus-visible:outline-none"
+                >
                   <motion.div
                     className="relative cursor-pointer"
                     initial="rest"
@@ -108,7 +146,7 @@ const Navbar = () => {
                   >
                     <span
                       className={`transition-colors ${
-                        activeSection === item.path
+                        activeSection === item.id
                           ? "text-primary font-semibold"
                           : "text-muted-foreground"
                       }`}
@@ -135,7 +173,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center gap-2">
             <Sheet>
               <SheetTrigger asChild>
-                <button>
+                <button aria-label="Open mobile menu">
                   <Menu className="w-5 h-5" />
                 </button>
               </SheetTrigger>
@@ -150,9 +188,9 @@ const Navbar = () => {
                     <Link
                       key={index}
                       href={item.path}
-                      onClick={() => setActiveSection(item.path)}
-                      className={`block px-2 py-1 text-lg rounded-md transition-colors ${
-                        activeSection === item.path
+                      onClick={(e) => handleNavClick(e, item)}
+                      className={`block px-2 py-1 text-lg rounded-md transition-colors border-none outline-none focus:outline-none focus:ring-0 ${
+                        activeSection === item.id
                           ? "text-primary font-semibold"
                           : "text-muted-foreground"
                       }`}
